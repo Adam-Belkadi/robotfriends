@@ -4,21 +4,22 @@ import SearchBox from '../components/SearchBox';
 import Scroll from '../components/Scroll.js';
 import ErrorBoundary from '../components/ErrorBoundry.js';
 import './App.css'
+import {robots} from '../robots.js';
 
 class App extends Component {
   constructor() {
     super();
     this.state = {
-      robots: [],
+      robots: robots,
       searchfield: '',
     };
   }
 
-  componentDidMount() {
-    fetch('http://jsonplaceholder.typicode.com/users')
-      .then((response) => response.json())
-      .then((data) => this.setState({ robots: data }));
-  }
+  // componentDidMount() {
+  //   fetch('http://jsonplaceholder.typicode.com/users')
+  //     .then((response) => response.json())
+  //     .then((data) => this.setState({ robots: data }));
+  // }
 
   onSearchChange = (event) => {
     this.setState({ searchfield: event.target.value });
